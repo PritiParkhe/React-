@@ -11,25 +11,22 @@ function EditPost() {
 
     useEffect(() => {
         if (slug) {
-            appwriteService.getPost(slug).then((post) =>{
+            appwriteService.getPost(slug).then((post) => {
                 if (post) {
                     setPosts(post)
-                    
                 }
             })
-            
-        }else {
-            navigate('/post')
+        } else {
+            navigate('/')
         }
-    },[slug, navigate])
-  return post ?(
+    }, [slug, navigate])
+  return post ? (
     <div className='py-8'>
         <Container>
             <PostForm post={post} />
         </Container>
     </div>
-
-  ): null
+  ) : null
 }
 
 export default EditPost
