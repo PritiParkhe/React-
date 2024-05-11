@@ -28,7 +28,8 @@ export class Service{
                 }
             )
         } catch (error) {
-            console.log("Appwrite serive :: createPost :: error", error);
+            // console.log("Appwrite serive :: createPost :: error", error);
+            throw error;
         }
     }
 
@@ -47,7 +48,8 @@ export class Service{
                 }
             )
         } catch (error) {
-            console.log("Appwrite serive :: updatePost :: error", error);
+            // console.log("Appwrite serive :: updatePost :: error", error);
+            throw error;
         }
     }
 
@@ -58,10 +60,11 @@ export class Service{
                 conf.appwriteCollectionId,
                 slug
             
-            )
+            );
             return true
         } catch (error) {
-            console.log("Appwrite serive :: deletePost :: error", error);
+            // console.log("Appwrite serive :: deletePost :: error", error);
+            throw error;
             return false
         }
     }

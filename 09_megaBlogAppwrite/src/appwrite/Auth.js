@@ -29,7 +29,7 @@ export class AuthService {
 
     async login ({email, password}){
         try {
-            return await this.account.createEmailSession(email, password);
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error
         }
@@ -42,7 +42,7 @@ export class AuthService {
             console.log("Apwrite service :: getCurrentUser :: error",error);
             
         }
-        return null;
+        // return null;
         }
     
     async logout (){
@@ -50,7 +50,8 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            console.log("Apwrite service :: logout :: error",error);
+            // console.log("Apwrite service :: logout :: error",error);
+            throw error;
         }
        
     }
