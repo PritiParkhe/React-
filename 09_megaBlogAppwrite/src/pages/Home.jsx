@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import appwriteService from "../appwrite/Config"
 import { Container, PostCard } from '../components'
+import { login, logout } from '../store/AuthSlice'
 
 function Home() {
     const [posts, setPosts] = useState([])
@@ -11,7 +12,7 @@ function Home() {
                 setPosts(posts.documents)
             }
         })
-    }, [])
+    }, [logout,login,Home])
   
     if (posts.length === 0) {
         return (
